@@ -73,12 +73,48 @@ class _SignInState extends State<SignIn> {
                             BoxConstraints(maxHeight: 45, minHeight: 45),
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    //const SizedBox(height: 10),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: CheckboxListTile(
+                            value: timeDilation != 1.0,
+                            onChanged: (bool? value) {
+                              setState(() {
+                                timeDilation = value! ? 2.0 : 1.0;
+                              });
+                            },
+                            title: const Text(
+                              'Remember me',
+                              style: TextStyle(color: Color(0xFFD2CECE)),
+                            ),
+                            controlAffinity: ListTileControlAffinity.leading,
+                            checkColor: Colors.white,
+                            activeColor: const Color(0xFFFF9190),
+                            checkboxShape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(5),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 30),
+                        Expanded(
+                          child: TextButton(
+                            onPressed: () {},
+                            child: const Text(
+                              'Forgot Password?',
+                              style: TextStyle(
+                                color: Color(0xFFFF9190),
+                                fontSize: 14,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
-
-              //const SizedBox(height: 100),
+              const SizedBox(height: 100),
               Container(
                 width: double.infinity,
                 padding: const EdgeInsets.symmetric(vertical: 3),
