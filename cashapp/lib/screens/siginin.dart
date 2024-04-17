@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
+import 'package:flutter_social_button/flutter_social_button.dart';
+import 'package:getwidget/getwidget.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({super.key});
@@ -146,6 +149,60 @@ class _SignInState extends State<SignIn> {
                   color: Color(0xFFD2CECE),
                   fontSize: 14,
                 ),
+              ),
+              const SizedBox(height: 20),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    child: GFIconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        Icons.facebook,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      type: GFButtonType.transparent,
+                      shape: GFIconButtonShape.standard,
+                    ),
+                  ),
+                  Expanded(
+                    child: GFIconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        FontAwesomeIcons.twitter,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      type: GFButtonType.transparent,
+                      shape: GFIconButtonShape.standard,
+                    ),
+                  ),
+                  Expanded(
+                    child: GFIconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        FontAwesomeIcons.linkedin,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      type: GFButtonType.transparent,
+                      shape: GFIconButtonShape.standard,
+                    ),
+                  ),
+                  Expanded(
+                    child: GFIconButton(
+                      onPressed: () {},
+                      icon: const Icon(
+                        FontAwesomeIcons.google,
+                        color: Colors.white,
+                        size: 30,
+                      ),
+                      type: GFButtonType.transparent,
+                      shape: GFIconButtonShape.standard,
+                    ),
+                  ),
+                ],
               ),
               const SizedBox(height: 30),
               Container(
