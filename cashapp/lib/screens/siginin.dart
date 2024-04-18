@@ -12,6 +12,14 @@ class SignIn extends StatefulWidget {
 }
 
 class _SignInState extends State<SignIn> {
+  bool passwordVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordVisible = true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,6 +50,11 @@ class _SignInState extends State<SignIn> {
                           color: Color(0xFFD2CECE), fontSize: 14),
                       decoration: const InputDecoration(
                         labelText: 'Username',
+                        prefixIcon: Icon(
+                          Icons.person,
+                          color: Color(0xFFD2CECE),
+                          size: 20,
+                        ),
                         labelStyle: TextStyle(color: Color(0xFFD2CECE)),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50)),
@@ -58,22 +71,42 @@ class _SignInState extends State<SignIn> {
                     ),
                     const SizedBox(height: 20),
                     TextFormField(
+                      obscureText: passwordVisible,
                       style: const TextStyle(
                           color: Color(0xFFD2CECE), fontSize: 14),
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Password',
-                        labelStyle: TextStyle(color: Color(0xFFD2CECE)),
-                        focusedBorder: OutlineInputBorder(
+                        prefixIcon: const Icon(
+                          Icons.lock,
+                          color: Color(0xFFD2CECE),
+                          size: 20,
+                        ),
+                        labelStyle: const TextStyle(color: Color(0xFFD2CECE)),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: const Color(0xFFD2CECE),
+                            size: 20,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              passwordVisible = !passwordVisible;
+                            });
+                          },
+                        ),
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(color: Colors.white, width: 2),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(color: Color(0xFFFF9190)),
                         ),
-                        contentPadding: EdgeInsets.only(left: 20),
+                        contentPadding: const EdgeInsets.only(left: 20),
                         constraints:
-                            BoxConstraints(maxHeight: 45, minHeight: 45),
+                            const BoxConstraints(maxHeight: 45, minHeight: 45),
                       ),
                     ),
                     //const SizedBox(height: 10),
@@ -143,66 +176,75 @@ class _SignInState extends State<SignIn> {
                 ),
               ),
               const SizedBox(height: 100),
-              const Text(
-                'Or Sign In with',
-                style: TextStyle(
-                  color: Color(0xFFD2CECE),
-                  fontSize: 14,
+              Container(
+                alignment: Alignment.center,
+                child: const Text(
+                  'Or Sign In With',
+                  style: TextStyle(
+                    color: Color(0xFFD2CECE),
+                    fontSize: 16,
+                  ),
                 ),
               ),
-              const SizedBox(height: 20),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    child: GFIconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.facebook,
-                        color: Colors.white,
-                        size: 30,
+              //const SizedBox(height: 10),
+              Container(
+                alignment: Alignment.center,
+                child: SizedBox(
+                  width: 150,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Expanded(
+                        child: GFIconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            Icons.facebook,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                          type: GFButtonType.transparent,
+                          shape: GFIconButtonShape.standard,
+                        ),
                       ),
-                      type: GFButtonType.transparent,
-                      shape: GFIconButtonShape.standard,
-                    ),
-                  ),
-                  Expanded(
-                    child: GFIconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        FontAwesomeIcons.twitter,
-                        color: Colors.white,
-                        size: 30,
+                      Expanded(
+                        child: GFIconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            FontAwesomeIcons.twitter,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                          type: GFButtonType.transparent,
+                          shape: GFIconButtonShape.standard,
+                        ),
                       ),
-                      type: GFButtonType.transparent,
-                      shape: GFIconButtonShape.standard,
-                    ),
-                  ),
-                  Expanded(
-                    child: GFIconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        FontAwesomeIcons.linkedin,
-                        color: Colors.white,
-                        size: 30,
+                      Expanded(
+                        child: GFIconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            FontAwesomeIcons.linkedin,
+                            color: Colors.white,
+                            size: 30,
+                          ),
+                          type: GFButtonType.transparent,
+                          shape: GFIconButtonShape.standard,
+                        ),
                       ),
-                      type: GFButtonType.transparent,
-                      shape: GFIconButtonShape.standard,
-                    ),
-                  ),
-                  Expanded(
-                    child: GFIconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        FontAwesomeIcons.google,
-                        color: Colors.white,
-                        size: 30,
+                      Expanded(
+                        child: GFIconButton(
+                          onPressed: () {},
+                          icon: const Icon(
+                            FontAwesomeIcons.google,
+                            color: Colors.white,
+                            size: 25,
+                          ),
+                          type: GFButtonType.transparent,
+                          shape: GFIconButtonShape.standard,
+                        ),
                       ),
-                      type: GFButtonType.transparent,
-                      shape: GFIconButtonShape.standard,
-                    ),
+                    ],
                   ),
-                ],
+                ),
               ),
               const SizedBox(height: 30),
               Container(
