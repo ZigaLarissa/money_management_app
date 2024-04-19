@@ -9,6 +9,14 @@ class SignUp extends StatefulWidget {
 }
 
 class _SignUpState extends State<SignUp> {
+  bool passwordVisible = false;
+
+  @override
+  void initState() {
+    super.initState();
+    passwordVisible = true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -110,42 +118,72 @@ class _SignUpState extends State<SignUp> {
                     ),
                     const SizedBox(height: 20),
                     TextFormField(
+                      obscureText: passwordVisible,
                       style: const TextStyle(
                           color: Color(0xFFD2CECE), fontSize: 14),
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Password',
-                        labelStyle: TextStyle(color: Color(0xFFD2CECE)),
-                        focusedBorder: OutlineInputBorder(
+                        labelStyle: const TextStyle(color: Color(0xFFD2CECE)),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: const Color(0xFFD2CECE),
+                            size: 20,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              passwordVisible = !passwordVisible;
+                            });
+                          },
+                        ),
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(color: Colors.white, width: 2),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(color: Color(0xFFFF9190)),
                         ),
-                        contentPadding: EdgeInsets.only(left: 20),
+                        contentPadding: const EdgeInsets.only(left: 20),
                         constraints:
-                            BoxConstraints(maxHeight: 45, minHeight: 45),
+                            const BoxConstraints(maxHeight: 45, minHeight: 45),
                       ),
                     ),
                     const SizedBox(height: 20),
                     TextFormField(
+                      obscureText: passwordVisible,
                       style: const TextStyle(
                           color: Color(0xFFD2CECE), fontSize: 14),
-                      decoration: const InputDecoration(
+                      decoration: InputDecoration(
                         labelText: 'Confirm Password',
-                        labelStyle: TextStyle(color: Color(0xFFD2CECE)),
-                        focusedBorder: OutlineInputBorder(
+                        labelStyle: const TextStyle(color: Color(0xFFD2CECE)),
+                        suffixIcon: IconButton(
+                          icon: Icon(
+                            passwordVisible
+                                ? Icons.visibility
+                                : Icons.visibility_off,
+                            color: const Color(0xFFD2CECE),
+                            size: 20,
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              passwordVisible = !passwordVisible;
+                            });
+                          },
+                        ),
+                        focusedBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(color: Colors.white, width: 2),
                         ),
-                        enabledBorder: OutlineInputBorder(
+                        enabledBorder: const OutlineInputBorder(
                           borderRadius: BorderRadius.all(Radius.circular(50)),
                           borderSide: BorderSide(color: Color(0xFFFF9190)),
                         ),
-                        contentPadding: EdgeInsets.only(left: 20),
+                        contentPadding: const EdgeInsets.only(left: 20),
                         constraints:
-                            BoxConstraints(maxHeight: 45, minHeight: 45),
+                            const BoxConstraints(maxHeight: 45, minHeight: 45),
                       ),
                     ),
                   ],
@@ -156,7 +194,7 @@ class _SignUpState extends State<SignUp> {
                 contentPadding: const EdgeInsets.all(0),
                 activeColor: const Color(0xFFFF9190),
                 checkColor: Colors.white,
-                fillColor: MaterialStateProperty.all(const Color(0xFFFF9190)),
+                //fillColor: MaterialStateProperty.all(const Color(0xFFFF9190)),
                 checkboxShape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(5),
                 ),
