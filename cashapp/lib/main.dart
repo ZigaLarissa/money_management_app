@@ -1,6 +1,4 @@
-import 'package:cashapp/screens/home.dart';
-import 'package:cashapp/screens/siginin.dart';
-import 'package:cashapp/screens/signup.dart';
+import 'package:cashapp/widgets/bottomnav.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +13,7 @@ class MainApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       routes: {
-        '/': (context) => const Home(),
+        '/': (context) => const BottomNav(),
       },
     );
   }
